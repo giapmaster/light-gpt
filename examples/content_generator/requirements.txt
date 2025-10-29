@@ -1,0 +1,47 @@
+# Core LightCrew framework (already installed in parent)
+# lightcrew>=0.1.0
+
+# Content processing
+markdown>=3.5.1
+beautifulsoup4>=4.12.0
+html2text>=2020.1.16
+
+# Grammar and language processing
+language-tool-python>=2.7.1
+textstat>=0.7.3
+spellchecker>=0.4
+
+# SEO and optimization
+yake>=0.4.8
+readability>=0.3.1
+
+# Web scraping for research
+requests>=2.31.0
+selenium>=4.15.0
+newspaper3k>=0.2.8
+
+# Data processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Template and formatting
+jinja2>=3.1.2
+python-docx>=0.8.11
+
+# Configuration
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+
+# CLI interface
+click>=8.1.7
+rich>=13.7.0
+
+# Async support
+aiohttp>=3.9.0
+asyncio-throttle>=1.0.2
+
+# Optional: Advanced integrations
+# openai>=1.3.0
+# anthropic>=0.7.0
+# grammarly-api>=0.1.0
+# yoast-seo>=1.0.0

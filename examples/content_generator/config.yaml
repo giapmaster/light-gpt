@@ -1,0 +1,255 @@
+# Content Generator Configuration
+
+# Agent Configurations
+agents:
+  researcher:
+    role: "Content Research Specialist"
+    goal: "Gather comprehensive information and insights for content creation"
+    backstory: "Expert researcher with deep knowledge of market trends and data analysis"
+    
+    llm:
+      provider: "openai"
+      model: "gpt-4o-mini"
+      temperature: 0.3
+      max_tokens: 1500
+    
+    tools:
+      - research_content
+    
+    performance:
+      research_depth: "comprehensive"
+      source_count: 10
+      fact_verification: true
+
+  writer:
+    role: "Content Creator"
+    goal: "Create engaging, well-structured content"
+    backstory: "Skilled content writer with expertise in various formats and styles"
+    
+    llm:
+      provider: "openai"
+      model: "gpt-4o-mini"
+      temperature: 0.7
+      max_tokens: 3000
+    
+    tools:
+      - write_content
+    
+    writing_style:
+      creativity: 0.7
+      structure_focus: true
+      engagement_priority: high
+
+  editor:
+    role: "Quality Assurance Editor"
+    goal: "Optimize content for quality, readability, and SEO"
+    backstory: "Meticulous editor with expertise in grammar, style, and SEO"
+    
+    llm:
+      provider: "openai"
+      model: "gpt-4o-mini"
+      temperature: 0.2
+      max_tokens: 2000
+    
+    tools:
+      - edit_content
+    
+    quality_standards:
+      grammar_threshold: 95
+      seo_target: 85
+      readability_target: 65
+
+# Content Type Configurations
+content_types:
+  blog_post:
+    structure: ["hook", "introduction", "main_points", "conclusion", "cta"]
+    word_count:
+      min: 800
+      max: 1500
+      target: 1000
+    tone_options: ["conversational", "professional", "casual"]
+    seo_focus: true
+    
+  technical_article:
+    structure: ["abstract", "introduction", "methodology", "results", "conclusion"]
+    word_count:
+      min: 1500
+      max: 3000
+      target: 2000
+    tone_options: ["professional", "technical", "academic"]
+    technical_depth: high
+    
+  social_media:
+    structure: ["hook", "main_message", "cta", "hashtags"]
+    word_count:
+      min: 50
+      max: 300
+      target: 150
+    tone_options: ["casual", "engaging", "conversational"]
+    engagement_focus: true
+
+# SEO Configuration
+seo:
+  keyword_density:
+    target: 0.02  # 2%
+    max: 0.035    # 3.5%
+  
+  meta_description:
+    min_length: 150
+    max_length: 160
+  
+  title:
+    min_length: 50
+    max_length: 60
+  
+  heading_structure:
+    use_h1: true
+    use_h2: true
+    use_h3: true
+    max_h1: 1
+  
+  internal_links:
+    target_count: 3
+    anchor_text_variety: true
+
+# Quality Metrics
+quality:
+  readability:
+    target_score: 60  # Flesch Reading Ease
+    grade_level: "8-12"
+    sentence_length: 20  # max words
+    
+  grammar:
+    threshold: 95  # minimum score
+    spell_check: true
+    style_check: true
+    
+  engagement:
+    hook_strength: true
+    call_to_action: true
+    emotional_appeal: moderate
+    
+  seo:
+    minimum_score: 80
+    keyword_optimization: true
+    meta_optimization: true
+
+# Workflow Configuration
+workflow:
+  execution_mode: "sequential"
+  
+  research_phase:
+    timeout: 300  # 5 minutes
+    parallel_searches: 3
+    source_verification: true
+    
+  writing_phase:
+    timeout: 600  # 10 minutes
+    draft_iterations: 2
+    style_consistency: true
+    
+  editing_phase:
+    timeout: 300  # 5 minutes
+    grammar_check: true
+    seo_optimization: true
+    final_review: true
+
+# Output Configuration
+output:
+  formats:
+    - markdown
+    - html
+    - json
+    
+  include_metadata: true
+  
+  metadata_fields:
+    - word_count
+    - seo_score
+    - readability_score
+    - generation_time
+    - research_sources
+    - keywords_used
+    
+  export_options:
+    save_drafts: true
+    version_control: false
+    backup_copies: 1
+
+# Performance Settings
+performance:
+  concurrent_agents: 3
+  
+  caching:
+    research_cache: true
+    cache_ttl: 3600  # 1 hour
+    
+  rate_limiting:
+    api_calls_per_minute: 60
+    research_requests_per_hour: 100
+    
+  resource_limits:
+    max_memory_mb: 512
+    max_processing_time: 1800  # 30 minutes
+
+# Integration Settings
+integrations:
+  # External APIs
+  search_apis:
+    serp_api:
+      enabled: false
+      api_key: "${SERP_API_KEY}"
+      
+    google_search:
+      enabled: false
+      api_key: "${GOOGLE_SEARCH_API_KEY}"
+      
+  grammar_check:
+    grammarly:
+      enabled: false
+      api_key: "${GRAMMARLY_API_KEY}"
+      
+  seo_tools:
+    yoast:
+      enabled: false
+    
+    semrush:
+      enabled: false
+      api_key: "${SEMRUSH_API_KEY}"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  
+  log_files:
+    content_generation: "logs/content_generation.log"
+    agent_performance: "logs/agent_performance.log"
+    quality_metrics: "logs/quality_metrics.log"
+    
+  metrics_tracking:
+    generation_time: true
+    quality_scores: true
+    agent_performance: true
+    user_satisfaction: false
+
+# Demo Settings
+demo:
+  mock_data: true
+  
+  sample_briefs:
+    - topic: "Artificial Intelligence in Healthcare"
+      type: "blog_post"
+      audience: "healthcare professionals"
+      
+    - topic: "Microservices Architecture Best Practices"
+      type: "technical_article"
+      audience: "software developers"
+      
+    - topic: "Remote Work Productivity Tips"
+      type: "social_media"
+      audience: "remote workers"
+      
+  mock_delays:
+    research: 2.0
+    writing: 5.0
+    editing: 3.0

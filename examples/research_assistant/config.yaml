@@ -1,0 +1,138 @@
+# Research Assistant Configuration
+
+research_agent:
+  role: "Senior Research Analyst"
+  goal: "Conduct comprehensive research and generate insightful reports"
+  backstory: "Expert researcher with 10+ years experience in market analysis and data synthesis"
+  
+  # LLM Configuration
+  llm:
+    provider: "openai"
+    model: "gpt-4"
+    temperature: 0.3
+    max_tokens: 2000
+  
+  # Tools Configuration
+  tools:
+    - web_search
+    - document_analyzer
+    - report_generator
+  
+  # Memory Settings
+  memory:
+    enabled: true
+    type: "in_memory"
+    ttl: 3600  # 1 hour
+
+# Search Configuration
+search_config:
+  max_sources: 15
+  search_depth: "comprehensive"
+  languages: ["en", "vi"]
+  timeout: 30
+  retry_count: 3
+  
+  # Search providers
+  providers:
+    - name: "serp_api"
+      api_key: "${SERP_API_KEY}"
+      enabled: true
+    - name: "google_search"
+      api_key: "${GOOGLE_SEARCH_API_KEY}"
+      enabled: false
+
+# Output Configuration  
+output_config:
+  format: "markdown"
+  include_charts: false
+  citation_style: "APA"
+  
+  # Report sections
+  sections:
+    - executive_summary
+    - key_findings
+    - detailed_analysis
+    - recommendations
+    - methodology
+    - sources
+  
+  # Export formats
+  export_formats:
+    - markdown
+    - html
+    - pdf
+    - json
+
+# Quality Control
+quality_config:
+  min_sources: 5
+  fact_check: true
+  plagiarism_check: false
+  readability_score: true
+  
+  # Validation rules
+  validation:
+    min_word_count: 500
+    max_word_count: 5000
+    required_sections: ["executive_summary", "key_findings"]
+
+# Performance Settings
+performance:
+  concurrent_searches: 3
+  cache_results: true
+  cache_ttl: 1800  # 30 minutes
+  
+  # Rate limiting
+  rate_limits:
+    searches_per_minute: 10
+    api_calls_per_hour: 100
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  
+  # Log files
+  files:
+    research_log: "logs/research.log"
+    error_log: "logs/errors.log"
+    
+  # Log retention
+  retention:
+    days: 30
+    max_size: "100MB"
+
+# Advanced Features
+advanced:
+  # Multi-language support
+  translation:
+    enabled: false
+    target_languages: ["en", "vi"]
+    
+  # AI-powered features
+  ai_features:
+    auto_categorization: true
+    sentiment_analysis: true
+    trend_detection: true
+    
+  # Integration settings
+  integrations:
+    slack_notifications: false
+    email_reports: false
+    webhook_url: null
+
+# Demo Settings (for demonstration purposes)
+demo:
+  mock_data: true
+  sample_topics:
+    - "Artificial Intelligence Market Trends 2024"
+    - "Sustainable Energy Technologies"
+    - "Remote Work Impact on Productivity"
+    - "Cryptocurrency Regulation Updates"
+    - "Healthcare AI Applications"
+  
+  # Mock responses
+  mock_responses:
+    web_search_delay: 1.0  # seconds
+    analysis_delay: 2.0    # seconds
+    report_generation_delay: 3.0  # seconds

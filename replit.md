@@ -27,6 +27,9 @@ LightCrew is a lightweight AI agent framework designed to facilitate the develop
 ```
 lightcrew/
 ├── lightcrew/          # Core framework
+│   ├── cli/           # Command-line interface
+│   │   ├── commands/  # CLI command implementations
+│   │   └── main.py    # CLI entry point
 │   ├── core/          # Core components (Agent, Task, Crew)
 │   ├── memory/        # Memory management
 │   ├── tools/         # Tool registry and base classes
@@ -36,6 +39,7 @@ lightcrew/
 │   ├── openai_minimal/       # Simple OpenAI integration demo
 │   ├── content_generator/    # Multi-agent content generation
 │   └── research_assistant/   # Research and report generation
+├── setup.py           # Package installation configuration
 ├── requirements.txt   # Core dependencies
 └── replit.md         # This file
 ```
@@ -48,13 +52,62 @@ The core dependencies are:
 - `openai>=1.0.0` - OpenAI API integration
 - `pyyaml>=6.0.1` - YAML configuration support
 - `python-dotenv>=1.0.0` - Environment variable management
+- `click>=8.1.7` - CLI framework
 
 All dependencies are installed via `requirements.txt`.
+
+### Installation
+LightCrew is installed as an editable package with CLI support:
+```bash
+pip install -e .
+```
+
+This makes the `lightcrew` command available globally.
 
 ### Environment Variables
 - `OPENAI_API_KEY` - Required for OpenAI integration (set via Replit Secrets)
 
 ## Running the Project
+
+### LightCrew CLI
+The framework now includes a comprehensive CLI tool for managing projects and running crews.
+
+**View all commands:**
+```bash
+lightcrew --help
+```
+
+**Initialize a new project:**
+```bash
+lightcrew init my_project --template basic
+cd my_project
+pip install -r requirements.txt
+```
+
+**Run examples:**
+```bash
+lightcrew examples list
+lightcrew examples run openai_minimal --interactive
+```
+
+**Create components:**
+```bash
+lightcrew create agent ResearchAgent --role Researcher
+lightcrew create tool search_tool
+lightcrew create crew my_crew --agents agent1 agent2
+```
+
+**Run crews from config:**
+```bash
+lightcrew run config.yaml --interactive
+lightcrew run config.yaml --query "Your question"
+```
+
+**Manage configuration:**
+```bash
+lightcrew config --list
+lightcrew config --set OPENAI_API_KEY sk-...
+```
 
 ### Current Workflow
 The default workflow runs the OpenAI minimal example in interactive mode:
@@ -160,6 +213,16 @@ The application uses structured logging. Check the console output for:
 - Error messages and warnings
 
 ## Recent Changes
+- **Nov 6, 2025**: CLI Implementation
+  - Built comprehensive CLI tool using Click framework
+  - Added `lightcrew init` command for project scaffolding
+  - Added `lightcrew run` command for executing crews from config
+  - Added `lightcrew create` commands for generating agents, tools, and crews
+  - Added `lightcrew examples` command for managing examples
+  - Added `lightcrew config` command for configuration management
+  - Created setup.py for package installation
+  - All CLI commands tested and working
+
 - **Nov 6, 2025**: Initial Replit environment setup
   - Installed Python 3.11
   - Created requirements.txt with core dependencies
@@ -179,4 +242,6 @@ None specified yet.
 - Implement Redis backend for memory management
 - Create web-based demo interface
 - Add comprehensive test suite
-- Package as installable Python package (setup.py/pyproject.toml)
+- Publish package to PyPI
+- Add CLI tests and integration tests
+- Enhance CLI with progress bars and better formatting

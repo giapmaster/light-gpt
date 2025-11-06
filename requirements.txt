@@ -9,9 +9,8 @@ openai>=1.0.0
 pyyaml>=6.0.1
 python-dotenv>=1.0.0
 
+# CLI framework
+click>=8.1.7
+
 # Optional: Redis backend for memory
 # redis>=5.0.0
-aiohttp
-openai
-python-dotenv
-pyyaml

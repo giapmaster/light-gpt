@@ -1,0 +1,17 @@
+# LightCrew Framework - Core Dependencies
+# Async support
+aiohttp>=3.9.0
+
+# LLM provider support
+openai>=1.0.0
+
+# Configuration and utilities
+pyyaml>=6.0.1
+python-dotenv>=1.0.0
+
+# Optional: Redis backend for memory
+# redis>=5.0.0
+aiohttp
+openai
+python-dotenv
+pyyaml
